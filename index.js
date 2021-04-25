@@ -1,4 +1,6 @@
 var tinyPinyin = require("tiny-pinyin");
+var path = require("path")
+var slugify = require('@vuepress/shared-utils').slugify
 
 function format(str) {
   if (str) {
@@ -24,15 +26,21 @@ function toPinyin(fileName) {
     lastToken = v;
   });
 
-  return pinyin;
+  return pinyin.trim();
 }
 
 var PinyinUrlsPlugin = {
   name: "vuepress-plugin-pinyin-urls",
   extendPageData(page) {
-    page.stripFilename = function(fileName) {
-      return toPinyin(fileName);
-    };
+    if(page.permalink){
+      page.stripFilename = function(fileName) {
+        return toPinyin(fileName);
+      };
+    }else{
+      var pathObject = path.parse(decodeURI(page.regularPath));
+      var pathDir = pathObject.dir == '/' ? pathObject.dir : pathObject.dir + '/';
+      page.path = pathDir + slugify(toPinyin(pathObject.name)) + pathObject.ext;
+    }
   },
 };
 
