@@ -29,9 +29,9 @@ module.exports = {
 Error: not support Intl or zh-CN language.
 ```
 
-因为插件使用了 ![tiny-pinyin](https://github.com/creeperyang/pinyin) , 所以最好使用 `node v13+` 。
+因为插件使用了 [tiny-pinyin](https://github.com/creeperyang/pinyin) , 所以最好使用 `node v13+` 。
 
-否则就需要安装 ![full-icu](https://www.npmjs.com/package/full-icu) 
+否则就需要安装 [full-icu](https://www.npmjs.com/package/full-icu) 
 
 ```
 npm install full-icu
