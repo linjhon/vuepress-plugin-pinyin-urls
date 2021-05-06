@@ -1,11 +1,8 @@
 {
   "name": "vuepress-plugin-pinyin-urls",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "vuepress plugin for pinyin urls",
   "main": "index.js",
-  "scripts": {
-    "lint": "eslint --ext .js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/linjhon/vuepress-plugin-pinyin-urls.git"
