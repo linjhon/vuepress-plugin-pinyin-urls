@@ -32,7 +32,11 @@ function toPinyin(fileName) {
 var PinyinUrlsPlugin = {
   name: "vuepress-plugin-pinyin-urls",
   extendPageData(page) {
-    if (page._permalink || page._permalinkPattern) {
+    if (
+      page._permalink ||
+      page._permalinkPattern ||
+      page.frontmatter.permalink
+    ) {
       page.stripFilename = function(fileName) {
         return toPinyin(fileName);
       };
