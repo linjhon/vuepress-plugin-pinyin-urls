@@ -26,6 +26,8 @@ module.exports = {
 };
 ```
 
+tips：尽量将 `pinyin-urls` 放到最后以保证其生效
+
 ## 问题
 
 如果你项目的 node 版本小于 13 ，会出现以下错误
@@ -48,8 +50,12 @@ npm install full-icu
 npm install -g full-icu
 ```
 
-然后还需要设置一次环境变量生效
+然后还需要设置一次环境变量生效（只对当前终端生效）
 
 ```sh
+# mac
 export NODE_ICU_DATA=/node_modules/full-icu
+
+# win
+set NODE_ICU_DATA=/node_modules/full-icu
 ```
