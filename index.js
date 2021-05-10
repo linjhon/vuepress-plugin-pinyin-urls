@@ -29,9 +29,16 @@ function toPinyin(fileName) {
   return pinyin.trim();
 }
 
+function isChinese(str) {
+  return new RegExp("[\\u4E00-\\u9FFF]", "g").test(str);
+}
+
 var PinyinUrlsPlugin = {
   name: "vuepress-plugin-pinyin-urls",
   extendPageData(page) {
+    if (!page.relativePath) return;
+    if (!isChinese(page.relativePath)) return;
+
     if (
       page._permalink ||
       page._permalinkPattern ||
